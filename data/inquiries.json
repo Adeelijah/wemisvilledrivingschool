@@ -1,0 +1,50 @@
+[
+  {
+    "id": "seed-1",
+    "name": "Adaeze Okafor",
+    "phone": "0803 000 0001",
+    "email": "",
+    "course": "basic",
+    "preferredContact": "WhatsApp",
+    "message": "Interested in weekend classes, please call.",
+    "status": "Contacted",
+    "notes": "",
+    "createdAt": "2026-07-01T09:24:00.000Z"
+  },
+  {
+    "id": "seed-2",
+    "name": "Tunde Adebayo",
+    "phone": "0810 000 0002",
+    "email": "tunde@example.com",
+    "course": "advanced-simulator",
+    "preferredContact": "Call",
+    "message": "",
+    "status": "Contacted",
+    "notes": "Called 2pm, will visit school Monday for registration.",
+    "createdAt": "2026-06-30T14:02:00.000Z"
+  },
+  {
+    "id": "seed-3",
+    "name": "Grace Ibe",
+    "phone": "0706 000 0003",
+    "email": "",
+    "course": "corporate-fleet",
+    "preferredContact": "WhatsApp",
+    "message": "Need training for 12 staff drivers.",
+    "status": "Enrolled",
+    "notes": "Signed up for corporate package.",
+    "createdAt": "2026-06-29T11:10:00.000Z"
+  },
+  {
+    "id": "1783154149927-bpvs5e",
+    "name": "Elijah Adegbenjo",
+    "phone": "08131197682",
+    "email": "adeelijah2000@gmail.com",
+    "course": "basic",
+    "preferredContact": "WhatsApp",
+    "message": "efhbwvifhfiPBWFVPIEHEBHPIEIGJWAIWEBIPGNAHBAWH9F",
+    "status": "Contacted",
+    "notes": "",
+    "createdAt": "2026-07-04T08:35:49.927Z"
+  }
+]
