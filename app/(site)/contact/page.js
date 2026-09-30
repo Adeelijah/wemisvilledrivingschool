@@ -30,6 +30,10 @@ export default function ContactPage() {
               <a href={site.phoneHref} className="mt-1 block text-road hover:underline">{site.phoneDisplay}</a>
             </div>
             <div>
+              <h2 className="font-display text-lg uppercase tracking-wide text-ink">Email</h2>
+              <a href={`mailto:${site.email}`} className="mt-1 block text-road hover:underline">{site.email}</a>
+            </div>
+            <div>
               <h2 className="font-display text-lg uppercase tracking-wide text-ink">Hours</h2>
               <p className="mt-1 text-slate">{site.hours}</p>
             </div>

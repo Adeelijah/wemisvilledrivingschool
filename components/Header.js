@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Container from "./Container";
 import { site } from "@/lib/site";
 
@@ -17,20 +16,30 @@ const NAV = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const updateScrollState = () => setScrolled(window.scrollY > 8);
+    updateScrollState();
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrollState);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-ink bg-paper">
+    <header
+      className={`sticky top-0 z-50 border-b-2 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${
+        scrolled
+          ? "border-ink/10 bg-paper/85 shadow-sm backdrop-blur-md"
+          : "border-ink bg-paper"
+      }`}
+    >
       <Container className="flex h-16 items-center justify-between md:h-20">
         <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <Image
-            src="/wemisville-logo-transparent.png"
-            alt="Wemisville Driving School"
-            width={80}
-            height={80}
-            className="h-16 w-16 object-contain md:h-20 md:w-20"
-          />
-          <span className="hidden font-display text-lg uppercase tracking-wide text-ink sm:inline md:text-xl">
-            {site.shortName}
+          <span className="flex items-center gap-2.5 whitespace-nowrap">
+            <span aria-hidden="true" className="h-2 w-2 flex-shrink-0 rounded-full bg-signal motion-safe:animate-pulse" />
+            <span className="font-display text-[11px] font-semibold uppercase tracking-[0.08em] text-ink sm:text-sm md:text-[13px] md:tracking-[0.04em]">
+              WEMISVILLE DRIVING SCHOOL
+            </span>
           </span>
         </Link>
 
