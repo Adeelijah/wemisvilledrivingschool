@@ -14,13 +14,13 @@ export async function PATCH(request, { params }) {
   const allowed = {};
   if (typeof body.status === "string") allowed.status = body.status;
   if (typeof body.notes === "string") allowed.notes = body.notes;
-  const updated = updateInquiry(params.id, allowed);
+  const updated = await updateInquiry(params.id, allowed);
   if (!updated) return NextResponse.json({ error: "Not found" }, { status: 404 });
   return NextResponse.json({ inquiry: updated });
 }
 
 export async function DELETE(request, { params }) {
   if (!requireAdmin()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  deleteInquiry(params.id);
+  await deleteInquiry(params.id);
   return NextResponse.json({ ok: true });
 }

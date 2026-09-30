@@ -15,7 +15,7 @@ export async function GET() {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const rows = listInquiries();
+  const rows = await listInquiries();
   const header = ["Name", "Phone", "Email", "Course", "Preferred Contact", "Status", "Message", "Notes", "Submitted"];
   const lines = [header.join(",")];
   for (const r of rows) {

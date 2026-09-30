@@ -9,7 +9,7 @@ export async function GET() {
   if (!isValidSessionToken(token)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  return NextResponse.json({ inquiries: listInquiries() });
+  return NextResponse.json({ inquiries: await listInquiries() });
 }
 
 // POST /api/inquiries — public, used by the site's Enroll/Inquiry form
@@ -18,7 +18,7 @@ export async function POST(request) {
   if (!body || !body.name || !body.phone) {
     return NextResponse.json({ error: "Name and phone are required." }, { status: 400 });
   }
-  const record = createInquiry(body);
+  const record = await createInquiry(body);
 
   // NOTE: wire up real notifications here before launch, e.g.:
   //   - send an email via an SMTP provider (Resend, Postmark, SES, etc.)
