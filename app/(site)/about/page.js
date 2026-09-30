@@ -6,16 +6,16 @@ import LaneDivider from "@/components/LaneDivider";
 
 export const metadata = {
   title: "About Us | Wemisville Driving School",
-  description: "FRSC-accredited driving school in Oba-Ile, Akure — our story, accreditation, and instructors.",
+  description: "Established in 2019, Wemisville Driving School trains aspiring drivers and provides retraining programmes for professional drivers.",
 };
 
 export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About Wemisville"
-        title="Training safer drivers for Akure"
-        desc="A comprehensive training institute engaged in basic driving instruction, advanced driving-simulation technology, and personalised coaching."
+        eyebrow="Established 2019 · About Wemisville"
+        title="Driver training for every stage"
+        desc="Established in 2019, Wemisville offers basic driving courses for aspiring drivers and retraining programmes for professional drivers seeking to adapt their driving skills to international standards."
       />
 
       <section className="py-14 md:py-20">
@@ -23,20 +23,28 @@ export default function AboutPage() {
           <div>
             <p className="font-plate text-xs uppercase tracking-[0.2em] text-road">Our story</p>
             <h2 className="mt-2 font-display text-3xl uppercase tracking-wide text-ink">
-              Built on safety, trusted by hundreds
+              Building confident drivers since 2019
             </h2>
             <p className="mt-4 text-slate">
-              Driving isn&apos;t just about learning the controls. It&apos;s about becoming confident enough to make the right decisions when the road gets busy.
+              Wemisville Driving School is a training institute for aspiring drivers, offering basic driving courses.
             </p>
             <p className="mt-4 text-slate">
-              Wemisville Driving School was built to help learners develop that confidence through patient instruction, practical training and real-world driving experience.
+              We also conduct retraining programmes, especially for professional drivers, to help them adapt their driving skills to international standards.
             </p>
-            <p className="mt-4 text-slate">
-              From first-time learners getting behind the wheel for the first time to drivers looking to strengthen their skills, Wemisville focuses on helping each learner understand the vehicle, understand the road and become a safer, more confident driver.
-            </p>
-            <p className="mt-4 text-slate">
-              Our goal is simple: to help people become genuinely ready for the road.
-            </p>
+            <div className="mt-8 grid grid-cols-3 gap-3 border-t border-chalkLine pt-5">
+              <div>
+                <p className="font-display text-2xl text-ink md:text-3xl">5,000+</p>
+                <p className="mt-1 font-plate text-[9px] uppercase leading-relaxed tracking-[0.08em] text-slate">Trained</p>
+              </div>
+              <div>
+                <p className="font-display text-2xl text-ink md:text-3xl">5,000+</p>
+                <p className="mt-1 font-plate text-[9px] uppercase leading-relaxed tracking-[0.08em] text-slate">Certified</p>
+              </div>
+              <div>
+                <p className="font-display text-2xl text-ink md:text-3xl">3,000+</p>
+                <p className="mt-1 font-plate text-[9px] uppercase leading-relaxed tracking-[0.08em] text-slate">Licences processed</p>
+              </div>
+            </div>
             <div className="mt-6">
               <PlateBadge tone="yellow">FRSC ACCREDITED</PlateBadge>
             </div>

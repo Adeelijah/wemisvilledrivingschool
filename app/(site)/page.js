@@ -29,7 +29,7 @@ export default function HomePage() {
               Learn to drive with real confidence
             </h1>
             <p className="mt-5 max-w-md text-base text-chalkLine/90 md:text-lg">
-              Comprehensive theory, road practice, and simulation-based training from an FRSC-accredited school trusted by hundreds of Akure residents.
+              Basic driving courses and professional-driver retraining from an FRSC-accredited school in Akure.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -58,9 +58,10 @@ export default function HomePage() {
       <section className="border-b-2 border-ink bg-chalk py-5">
         <Container className="flex flex-wrap items-center justify-center gap-3 md:justify-between">
           <PlateBadge tone="white">FRSC ACCREDITED</PlateBadge>
-          <PlateBadge tone="white">{site.rating}★ · {site.reviewCount} REVIEWS</PlateBadge>
-          <PlateBadge tone="white">SIMULATION TECH</PlateBadge>
-          <PlateBadge tone="white">OBA-ILE, AKURE</PlateBadge>
+          <PlateBadge tone="white">5,000+ TRAINED</PlateBadge>
+          <PlateBadge tone="white">5,000+ CERTIFIED</PlateBadge>
+          <PlateBadge tone="white">3,000+ LICENCES PROCESSED</PlateBadge>
+          <PlateBadge tone="white">EST. 2019</PlateBadge>
         </Container>
       </section>
 
