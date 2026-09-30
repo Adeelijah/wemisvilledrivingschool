@@ -23,7 +23,7 @@ export default function Header() {
       <Container className="flex h-16 items-center justify-between md:h-20">
         <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <span className="flex h-7 w-[52px] items-center justify-center overflow-hidden rounded-[4px] border-2 border-ink bg-signal">
-            <Image src="/logo.jpg" alt="Wemisville Driving School" width={28} height={28} className="h-7 w-7 object-contain" />
+            <Image src="/faviconnew.png" alt="Wemisville Driving School" width={28} height={28} className="h-7 w-7 object-contain" />
           </span>
           <span className="hidden font-display text-lg uppercase tracking-wide text-ink sm:inline md:text-xl">
             {site.shortName}
