@@ -24,7 +24,7 @@ export default function HomePage() {
         </div>
         <Container className="grid gap-10 py-16 md:grid-cols-[1.2fr_1fr] md:items-center md:py-24">
           <div>
-            <PlateBadge tone="yellow" className="mb-5">FRSC ACCREDITED · AKURE</PlateBadge>
+            <PlateBadge tone="yellow" className="mb-5">FRSC ACCREDITED · AKURE · LEKKI</PlateBadge>
             <h1 className="font-display text-4xl uppercase leading-[1.05] tracking-wide text-paper md:text-6xl">
               Learn to drive with real confidence
             </h1>
@@ -73,7 +73,7 @@ export default function HomePage() {
               <h2 className="font-display text-3xl uppercase tracking-wide text-ink md:text-4xl">Our Courses</h2>
             </div>
             <Link href="/courses" className="font-body text-sm font-bold text-road hover:underline">
-              View all courses →
+              View other services
             </Link>
           </div>
           <div className="grid gap-6 md:grid-cols-3">

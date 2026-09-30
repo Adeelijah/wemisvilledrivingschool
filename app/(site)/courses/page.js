@@ -2,12 +2,12 @@ import PageHero from "@/components/PageHero";
 import Container from "@/components/Container";
 import CourseCard from "@/components/CourseCard";
 import LaneDivider from "@/components/LaneDivider";
-import { courses } from "@/lib/courses";
+import { corporateFleetTraining, courses, otherServices } from "@/lib/courses";
 import { whatsappLink } from "@/lib/site";
 
 export const metadata = {
   title: "Courses | Wemisville Driving School",
-  description: "Basic, advanced simulator, and corporate/fleet driving courses at Wemisville Driving School, Akure.",
+  description: "Driving courses and other driver services from Wemisville Driving School, Akure.",
 };
 
 export default function CoursesPage() {
@@ -16,13 +16,61 @@ export default function CoursesPage() {
       <PageHero
         eyebrow="What we offer"
         title="Our Driving Courses"
-        desc="Every course combines FRSC-aligned theory, hands-on road practice, and — where relevant — simulator training, tailored to your experience level."
+        desc="Explore practical driving courses tailored to your experience level."
       />
       <section className="py-14 md:py-20">
         <Container className="grid gap-8 md:grid-cols-3">
           {courses.map((course) => (
             <CourseCard key={course.code} course={course} />
           ))}
+        </Container>
+      </section>
+
+      <section className="bg-chalk py-14 md:py-20">
+        <Container>
+          <div className="mb-8">
+            <p className="font-plate text-xs uppercase tracking-[0.2em] text-road">More ways we can help</p>
+            <h2 className="mt-2 font-display text-3xl uppercase tracking-wide text-ink md:text-4xl">Other Services</h2>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {otherServices.map((service) => (
+              <article key={service.name} className="flex flex-col border-2 border-ink bg-paper p-5">
+                <h3 className="font-display text-lg uppercase tracking-wide text-ink">{service.name}</h3>
+                <p className="mt-2 flex-1 text-sm text-slate">{service.description}</p>
+                <a
+                  href={whatsappLink(`Hi Wemisville, I'd like to enquire about ${service.name}.`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center justify-center rounded-[4px] border-2 border-ink bg-signal px-4 py-2.5 text-sm font-bold text-ink transition-colors hover:bg-signalDark"
+                >
+                  Enquire on WhatsApp
+                </a>
+              </article>
+            ))}
+            <article className="flex flex-col border-2 border-ink bg-paper p-5">
+              <h3 className="font-display text-lg uppercase tracking-wide text-ink">Corporate / Fleet Training</h3>
+              <p className="mt-2 text-sm text-slate">Custom, group-based training for {corporateFleetTraining.audience.toLowerCase()}.</p>
+              <ul className="mt-4 flex-1 space-y-1.5 text-sm text-ink">
+                {corporateFleetTraining.includes.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-road" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={whatsappLink("Hi Wemisville, I'd like to enquire about Corporate / Fleet Training.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center justify-center rounded-[4px] border-2 border-ink bg-signal px-4 py-2.5 text-sm font-bold text-ink transition-colors hover:bg-signalDark"
+              >
+                Enquire on WhatsApp
+              </a>
+            </article>
+          </div>
+          <p className="mt-5 max-w-3xl text-xs text-slate">
+            Wemisville provides assistance with licence-related processing; driver’s licences are issued by the appropriate licensing authority.
+          </p>
         </Container>
       </section>
 

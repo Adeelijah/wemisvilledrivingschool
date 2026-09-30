@@ -2,10 +2,16 @@ import Link from "next/link";
 
 export default function CourseCard({ course, compact = false }) {
   return (
-    <div className="flex flex-col border-2 border-ink bg-paper">
+    <div className={`flex flex-col border-2 bg-paper ${course.featured ? "border-signal shadow-[0_8px_24px_rgba(17,17,17,0.12)]" : "border-ink"}`}>
       <div className="flex items-center justify-between bg-ink px-4 py-2">
         <span className="font-plate text-xs tracking-[0.15em] text-signal">{course.code}</span>
-        <span className="h-2 w-6 bg-[repeating-linear-gradient(90deg,#F2C200_0,#F2C200_4px,#111111_4px,#111111_8px)]" aria-hidden="true" />
+        {course.featured ? (
+          <span className="rounded-sm bg-signal px-2 py-1 font-plate text-[9px] font-bold tracking-[0.12em] text-ink">
+            MOST ENROLLED
+          </span>
+        ) : (
+          <span className="h-2 w-6 bg-[repeating-linear-gradient(90deg,#F2C200_0,#F2C200_4px,#111111_4px,#111111_8px)]" aria-hidden="true" />
+        )}
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
         <h3 className="font-display text-xl uppercase tracking-wide text-ink">{course.name}</h3>
