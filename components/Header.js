@@ -22,9 +22,13 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b-2 border-ink bg-paper">
       <Container className="flex h-16 items-center justify-between md:h-20">
         <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="flex h-7 w-[52px] items-center justify-center overflow-hidden rounded-[4px] border-2 border-ink bg-signal">
-            <Image src="/faviconnew.png" alt="Wemisville Driving School" width={28} height={28} className="h-7 w-7 object-contain" />
-          </span>
+          <Image
+            src="/wemisville-logo-transparent.png"
+            alt="Wemisville Driving School"
+            width={80}
+            height={80}
+            className="h-16 w-16 object-contain md:h-20 md:w-20"
+          />
           <span className="hidden font-display text-lg uppercase tracking-wide text-ink sm:inline md:text-xl">
             {site.shortName}
           </span>
