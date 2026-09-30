@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { listInquiries, createInquiry } from "@/lib/db";
 import { isValidSessionToken, ADMIN_COOKIE_NAME } from "@/lib/auth";
+import { sendAdminEnrollmentNotification } from "@/lib/enrollment-notification";
 
 // GET /api/inquiries — admin only, returns all leads
 export async function GET() {
@@ -20,10 +21,12 @@ export async function POST(request) {
   }
   const record = await createInquiry(body);
 
-  // NOTE: wire up real notifications here before launch, e.g.:
-  //   - send an email via an SMTP provider (Resend, Postmark, SES, etc.)
-  //   - or post to a WhatsApp Business API / Twilio endpoint
-  // For the MVP, new leads simply appear in the admin dashboard inbox.
+  const notification = await sendAdminEnrollmentNotification(record);
+  if (!notification.sent) {
+    console.error("Enrollment saved, but the admin email notification failed.", {
+      reason: notification.reason,
+    });
+  }
 
   return NextResponse.json({ ok: true, inquiry: record }, { status: 201 });
 }

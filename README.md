@@ -64,13 +64,17 @@ themselves:
 This keeps the actual website custom-built and fast, while giving the school the same
 day-to-day editing convenience a WordPress site would offer.
 
-## Notifications when a new inquiry comes in
+## Admin enrollment email notifications
 
-Currently, new inquiries only appear in the admin dashboard. Before launch, wire up a
-notification in `app/api/inquiries/route.js` (see the `POST` handler) — e.g.:
+After an enrollment is saved, the API sends a best-effort notification to the admin using Resend. A notification failure does not change the successful enrollment response.
 
-- Email via Resend, Postmark, or SES, or
-- WhatsApp via the WhatsApp Business API or a service like Twilio
+Configure these environment variables in `.env.local` for local development and in the Vercel project's Environment Variables for deployment:
+
+- `RESEND_API_KEY`: a server-side API key created in Resend
+- `ADMIN_NOTIFICATION_EMAIL`: the address that should receive new enrollment notifications
+- `RESEND_FROM_EMAIL`: the sender identity using a domain verified in Resend; Resend supports adding a display name to the sender address
+
+In Resend, verify the sending domain and create an API key with permission to send email. Keep the API key server-side; it is only used by `app/api/inquiries/route.js` through `lib/enrollment-notification.js`.
 
 ## Payment integration (not built — flagged in the PRD as a future item)
 
