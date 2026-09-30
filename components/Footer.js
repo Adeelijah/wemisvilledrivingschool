@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Container from "./Container";
 import LaneDivider from "./LaneDivider";
 import PlateBadge from "./PlateBadge";
@@ -13,7 +14,10 @@ export default function Footer() {
           <div className="mb-3 inline-flex">
             <PlateBadge tone="dark">FRSC ACCREDITED</PlateBadge>
           </div>
-          <p className="font-display text-xl uppercase tracking-wide text-paper">{site.name}</p>
+          <div className="flex items-center gap-2">
+            <Image src="/logo.jpg" alt="Wemisville Driving School logo" width={28} height={28} className="h-7 w-7 object-contain" />
+            <p className="font-display text-xl uppercase tracking-wide text-paper">{site.name}</p>
+          </div>
           <p className="mt-2 max-w-xs text-sm text-chalkLine/80">
             Comprehensive driving instruction, driving-simulation technology, and personalised training in Akure, Ondo State.
           </p>

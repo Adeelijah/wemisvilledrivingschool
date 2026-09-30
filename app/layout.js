@@ -10,6 +10,9 @@ import "./globals.css";
 
 export const metadata = {
   title: "Wemisville Driving School | FRSC Accredited | Akure",
+  icons: {
+    icon: "/favicon.jpg",
+  },
   description:
     "FRSC-accredited driving school in Oba-Ile, Akure. Basic, advanced simulator, and corporate driver training. 4.9★ from 402+ Google reviews.",
 };

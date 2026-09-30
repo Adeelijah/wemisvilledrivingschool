@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Container from "./Container";
 import { site } from "@/lib/site";
 
@@ -21,8 +22,8 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b-2 border-ink bg-paper">
       <Container className="flex h-16 items-center justify-between md:h-20">
         <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="flex items-center gap-1 rounded-[4px] border-2 border-ink bg-signal px-2 py-1 font-plate text-sm font-bold tracking-wider text-ink md:text-base">
-            WDS
+          <span className="flex h-7 w-[52px] items-center justify-center overflow-hidden rounded-[4px] border-2 border-ink bg-signal">
+            <Image src="/logo.jpg" alt="Wemisville Driving School" width={28} height={28} className="h-7 w-7 object-contain" />
           </span>
           <span className="hidden font-display text-lg uppercase tracking-wide text-ink sm:inline md:text-xl">
             {site.shortName}

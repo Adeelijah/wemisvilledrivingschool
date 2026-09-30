@@ -1,7 +1,7 @@
 import PageHero from "@/components/PageHero";
 import Container from "@/components/Container";
 import PlateBadge from "@/components/PlateBadge";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import Image from "next/image";
 import LaneDivider from "@/components/LaneDivider";
 import { site } from "@/lib/site";
 
@@ -39,7 +39,15 @@ export default function AboutPage() {
               <PlateBadge tone="yellow">FRSC ACCREDITED</PlateBadge>
             </div>
           </div>
-          <ImagePlaceholder label="School / facility photo" />
+          <div className="relative aspect-[4/3] w-full overflow-hidden border-2 border-slate/40 bg-chalk">
+            <Image
+              src="/facilityphoto.jpg"
+              alt="Wemisville's yellow driving school facility with training cars parked outside."
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         </Container>
       </section>
 
@@ -50,7 +58,15 @@ export default function AboutPage() {
           <p className="font-plate text-xs uppercase tracking-[0.2em] text-road">Accreditation</p>
           <h2 className="mt-2 font-display text-3xl uppercase tracking-wide text-ink">FRSC Accreditation</h2>
           <div className="mt-8 grid gap-8 md:grid-cols-2 md:items-center">
-            <ImagePlaceholder label="FRSC certificate" ratio="aspect-[3/4] md:max-w-sm" />
+            <div className="relative aspect-[3/4] w-full overflow-hidden border-2 border-slate/40 bg-chalk md:max-w-sm">
+              <Image
+                src="/frsctestday.jpg"
+                alt="Wemisville representatives standing with FRSC officials at the driving school."
+                fill
+                sizes="(min-width: 768px) 384px, 100vw"
+                className="object-cover"
+              />
+            </div>
             <p className="text-slate">
               Wemisville Driving School is accredited by the Federal Road Safety Corps (FRSC), meaning our
               curriculum and testing preparation align with federal road-safety standards. [Insert accreditation
@@ -65,9 +81,17 @@ export default function AboutPage() {
           <p className="font-plate text-xs uppercase tracking-[0.2em] text-road">Our team</p>
           <h2 className="mt-2 font-display text-3xl uppercase tracking-wide text-ink">Instructors</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="border-2 border-ink bg-paper p-5">
-                <ImagePlaceholder label="Instructor photo" ratio="aspect-square" />
+            {["/instructor1.jpg", "/instructor2.jpg"].map((src, i) => (
+              <div key={src} className="border-2 border-ink bg-paper p-5">
+                <div className="relative aspect-square w-full overflow-hidden border-2 border-slate/40 bg-chalk">
+                  <Image
+                    src={src}
+                    alt={`Portrait of Wemisville driving instructor ${i + 1}.`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
                 <h3 className="mt-4 font-display text-lg uppercase tracking-wide text-ink">Instructor Name</h3>
                 <p className="text-sm text-slate">[Role / years of experience — to be supplied]</p>
               </div>
