@@ -54,17 +54,6 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* TRUST STRIP */}
-      <section className="border-b-2 border-ink bg-chalk py-5">
-        <Container className="flex flex-wrap items-center justify-center gap-3 md:justify-between">
-          <PlateBadge tone="white">FRSC ACCREDITED</PlateBadge>
-          <PlateBadge tone="white">5,000+ TRAINED</PlateBadge>
-          <PlateBadge tone="white">5,000+ CERTIFIED</PlateBadge>
-          <PlateBadge tone="white">3,000+ LICENCES PROCESSED</PlateBadge>
-          <PlateBadge tone="white">EST. 2019</PlateBadge>
-        </Container>
-      </section>
-
       {/* COURSES */}
       <section className="py-16 md:py-24">
         <Container>
@@ -79,7 +68,7 @@ export default function HomePage() {
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {courses.map((course) => (
-              <CourseCard key={course.code} course={course} compact />
+              <CourseCard key={course.code} course={course} />
             ))}
           </div>
         </Container>
