@@ -62,6 +62,20 @@ export default function Footer() {
               </a>
             </li>
             <li>
+              <a href="https://www.tiktok.com/@wemisvilledrivingschool" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-chalkLine/25 text-chalkLine/80 transition-colors hover:border-signal hover:text-signal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal">
+                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+                  <path d="M19.6 7.2a6.2 6.2 0 0 1-3.8-1.3v8.2a6.2 6.2 0 1 1-5.4-6.1v3.2a3.1 3.1 0 1 0 2.2 3V2h3.2c.2 2.1 1.5 3.8 3.8 4.2v1Z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/wemisville" target="_blank" rel="noopener noreferrer" aria-label="X" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-chalkLine/25 text-chalkLine/80 transition-colors hover:border-signal hover:text-signal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal">
+                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+                  <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.6 22H2.5l7.3-8.4L1.8 2h6.5l4.5 6.8L18.9 2Zm-1.1 17.9h1.7L7.3 3.9H5.5l12.3 16Z" />
+                </svg>
+              </a>
+            </li>
+            <li>
               <a href="https://web.facebook.com/wemisville/?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-chalkLine/25 text-chalkLine/80 transition-colors hover:border-signal hover:text-signal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal">
                 <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
                   <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.6V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.2V13H10v8h3.5Z" />
