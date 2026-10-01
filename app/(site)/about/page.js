@@ -91,8 +91,8 @@ export default function AboutPage() {
           <h2 className="mt-2 font-display text-3xl uppercase tracking-wide text-ink">Instructors</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {[
-              { src: "/instructor1.jpg", name: "Mr. Wemimo", experience: "20+ years of experience" },
-              { src: "/instructor2.jpg", name: "Mr. Timileyin", experience: "15+ years of experience" },
+              { src: "/instructor1.jpg", name: "Mr. Wemimo", experience: "15+ years of experience" },
+              { src: "/instructor2.jpg", name: "Mr. Timileyin", experience: "13+ years of experience" },
             ].map((instructor) => (
               <div key={instructor.name} className="border-2 border-ink bg-paper p-5">
                 <div className="relative aspect-square w-full overflow-hidden border-2 border-slate/40 bg-chalk">

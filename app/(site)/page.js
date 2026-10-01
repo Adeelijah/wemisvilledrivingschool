@@ -4,7 +4,8 @@ import LaneDivider from "@/components/LaneDivider";
 import PlateBadge from "@/components/PlateBadge";
 import Gauge from "@/components/Gauge";
 import CourseCard from "@/components/CourseCard";
-import { courses, enrollSteps, testimonials } from "@/lib/courses";
+import { enrollSteps, testimonials } from "@/lib/courses";
+import { getCoursesWithPrices } from "@/lib/course-pricing";
 import { site, whatsappLink } from "@/lib/site";
 
 const WHY = [
@@ -14,7 +15,11 @@ const WHY = [
   { title: "Personalised Training", desc: "Pace and focus areas adjusted to how you actually learn." },
 ];
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const displayCourses = await getCoursesWithPrices();
+
   return (
     <>
       {/* HERO */}
@@ -67,7 +72,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {courses.map((course) => (
+            {displayCourses.map((course) => (
               <CourseCard key={course.code} course={course} />
             ))}
           </div>

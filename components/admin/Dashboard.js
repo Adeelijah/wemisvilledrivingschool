@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import CoursePricingManager from "./CoursePricingManager";
 
 const STATUSES = ["New", "Contacted", "Enrolled", "Not Interested"];
 const STATUS_STYLES = {
@@ -19,6 +20,7 @@ export default function Dashboard() {
   const [statusFilter, setStatusFilter] = useState("All");
   const [search, setSearch] = useState("");
   const [notesDraft, setNotesDraft] = useState("");
+  const [activeSection, setActiveSection] = useState("inquiries");
 
   async function load() {
     setLoading(true);
@@ -90,9 +92,20 @@ export default function Dashboard() {
           <p className="mt-3 font-display text-sm uppercase tracking-wide text-chalkLine/70">Admin</p>
         </div>
         <nav className="flex-1 space-y-1 px-3 text-sm">
-          <div className="rounded px-3 py-2 font-medium text-paper">
+          <button
+            onClick={() => setActiveSection("inquiries")}
+            aria-current={activeSection === "inquiries" ? "page" : undefined}
+            className={`w-full rounded px-3 py-2 text-left font-medium ${activeSection === "inquiries" ? "bg-asphalt text-paper" : "text-chalkLine/70 hover:bg-asphalt hover:text-paper"}`}
+          >
             Inquiries {newCount > 0 && <span className="ml-1 text-signal">({newCount} new)</span>}
-          </div>
+          </button>
+          <button
+            onClick={() => setActiveSection("pricing")}
+            aria-current={activeSection === "pricing" ? "page" : undefined}
+            className={`w-full rounded px-3 py-2 text-left font-medium ${activeSection === "pricing" ? "bg-asphalt text-paper" : "text-chalkLine/70 hover:bg-asphalt hover:text-paper"}`}
+          >
+            Course Pricing
+          </button>
         </nav>
         <div className="border-t border-chalkLine/10 p-3">
           <button onClick={logout} className="w-full rounded px-3 py-2 text-left text-sm text-chalkLine/80 hover:bg-asphalt">
@@ -104,40 +117,64 @@ export default function Dashboard() {
       {/* Main */}
       <div className="flex-1">
         <header className="flex items-center justify-between border-b-2 border-ink bg-paper px-5 py-4 md:px-8">
-          <h1 className="font-display text-xl uppercase tracking-wide text-ink">Inquiries Inbox</h1>
+          <h1 className="font-display text-xl uppercase tracking-wide text-ink">
+            {activeSection === "inquiries" ? "Inquiries Inbox" : "Course Pricing"}
+          </h1>
           <div className="flex items-center gap-3">
-            <input
-              type="search"
-              placeholder="Search leads…"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="hidden border-2 border-slate/30 px-3 py-1.5 text-sm sm:block"
-            />
-            <a
-              href="/api/inquiries/export"
-              className="rounded-[4px] border-2 border-ink bg-signal px-3 py-1.5 font-body text-xs font-bold text-ink hover:bg-signalDark"
-            >
-              Export CSV
-            </a>
+            {activeSection === "inquiries" && (
+              <>
+                <input
+                  type="search"
+                  placeholder="Search leads…"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="hidden border-2 border-slate/30 px-3 py-1.5 text-sm sm:block"
+                />
+                <a
+                  href="/api/inquiries/export"
+                  className="rounded-[4px] border-2 border-ink bg-signal px-3 py-1.5 font-body text-xs font-bold text-ink hover:bg-signalDark"
+                >
+                  Export CSV
+                </a>
+              </>
+            )}
             <button onClick={logout} className="text-sm text-slate hover:text-ink md:hidden">Log out</button>
           </div>
         </header>
 
-        <div className="flex flex-wrap items-center gap-2 border-b border-slate/20 bg-paper px-5 py-3 md:px-8">
-          {["All", ...STATUSES].map((s) => (
+        <nav aria-label="Admin sections" className="flex gap-2 border-b border-slate/20 bg-paper px-5 py-3 md:hidden">
+          {[
+            ["inquiries", "Inquiries"],
+            ["pricing", "Course Pricing"],
+          ].map(([section, label]) => (
             <button
-              key={s}
-              onClick={() => setStatusFilter(s)}
-              className={`rounded-full border-2 px-3 py-1 text-xs font-medium ${
-                statusFilter === s ? "border-ink bg-ink text-paper" : "border-slate/30 text-slate hover:border-ink"
-              }`}
+              key={section}
+              onClick={() => setActiveSection(section)}
+              aria-current={activeSection === section ? "page" : undefined}
+              className={`rounded border-2 px-3 py-1.5 text-xs font-medium ${activeSection === section ? "border-ink bg-ink text-paper" : "border-slate/30 text-slate"}`}
             >
-              {s}
+              {label}
             </button>
           ))}
-        </div>
+        </nav>
 
-        <div className="grid gap-0 md:grid-cols-[1.4fr_1fr]">
+        {activeSection === "inquiries" ? (
+          <>
+            <div className="flex flex-wrap items-center gap-2 border-b border-slate/20 bg-paper px-5 py-3 md:px-8">
+              {["All", ...STATUSES].map((s) => (
+                <button
+                  key={s}
+                  onClick={() => setStatusFilter(s)}
+                  className={`rounded-full border-2 px-3 py-1 text-xs font-medium ${
+                    statusFilter === s ? "border-ink bg-ink text-paper" : "border-slate/30 text-slate hover:border-ink"
+                  }`}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+
+            <div className="grid gap-0 md:grid-cols-[1.4fr_1fr]">
           {/* Inquiry list */}
           <div className="border-r border-slate/20">
             {loading ? (
@@ -223,7 +260,11 @@ export default function Dashboard() {
               </div>
             )}
           </div>
-        </div>
+            </div>
+          </>
+        ) : (
+          <CoursePricingManager />
+        )}
       </div>
     </div>
   );
