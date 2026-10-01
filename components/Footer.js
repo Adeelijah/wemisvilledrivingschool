@@ -36,7 +36,9 @@ export default function Footer() {
           <p className="mb-3 font-plate text-xs uppercase tracking-[0.15em] text-signal">Contact</p>
           <ul className="space-y-2 text-sm text-chalkLine/90">
             <li>{site.address}</li>
-            <li><a href={site.phoneHref} className="hover:text-signal">{site.phoneDisplay}</a></li>
+            {site.phoneNumbers.map((phone) => (
+              <li key={phone.href}><a href={phone.href} className="hover:text-signal">{phone.display}</a></li>
+            ))}
             <li><a href={`mailto:${site.email}`} className="hover:text-signal">{site.email}</a></li>
             <li>{site.hours}</li>
           </ul>

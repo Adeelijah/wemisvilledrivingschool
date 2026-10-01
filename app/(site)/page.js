@@ -9,7 +9,7 @@ import { site, whatsappLink } from "@/lib/site";
 
 const WHY = [
   { title: "FRSC Accredited", desc: "Officially recognised training that meets federal road-safety standards." },
-  { title: "Simulation Technology", desc: "Build confidence on a simulator before you ever face live traffic." },
+  { title: "Simulation Technology", desc: "Simulator training sessions are included in all three driving courses." },
   { title: "Experienced Instructors", desc: "Patient, structured teaching for first-time and returning drivers." },
   { title: "Personalised Training", desc: "Pace and focus areas adjusted to how you actually learn." },
 ];

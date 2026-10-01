@@ -22,9 +22,9 @@ export default function CourseCard({ course, compact = false }) {
           <dt className="text-slate">Price</dt>
           <dd className="text-ink">{course.price}</dd>
         </dl>
-        {!compact && (
+        {(!compact || course.includes.includes("Simulator training sessions")) && (
           <ul className="mt-1 space-y-1.5 text-sm text-ink">
-            {course.includes.map((item) => (
+            {(compact ? course.includes.filter((item) => item === "Simulator training sessions") : course.includes).map((item) => (
               <li key={item} className="flex gap-2">
                 <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-road" />
                 {item}

@@ -27,7 +27,9 @@ export default function ContactPage() {
             </div>
             <div>
               <h2 className="font-display text-lg uppercase tracking-wide text-ink">Phone</h2>
-              <a href={site.phoneHref} className="mt-1 block text-road hover:underline">{site.phoneDisplay}</a>
+              {site.phoneNumbers.map((phone) => (
+                <a key={phone.href} href={phone.href} className="mt-1 block text-road hover:underline">{phone.display}</a>
+              ))}
             </div>
             <div>
               <h2 className="font-display text-lg uppercase tracking-wide text-ink">Email</h2>
