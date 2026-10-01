@@ -18,7 +18,7 @@ const FAQS = [
   },
   {
     q: "How long does training take?",
-    a: "The Basic Driving Course is 4 weeks, the Intense Driving Course is 3 weeks, and the Advanced Course is 2 weeks. See the Courses page for details.",
+    a: "The Basic Driving Course is 2 weeks, the Intense Driving Course is 3 weeks, and the Advanced Course is 4 weeks. See the Courses page for details.",
   },
   {
     q: "How does the FRSC test process work?",
