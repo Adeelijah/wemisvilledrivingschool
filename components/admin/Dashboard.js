@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import CoursePricingManager from "./CoursePricingManager";
+import GalleryManager from "./GalleryManager";
 
 const STATUSES = ["New", "Contacted", "Enrolled", "Not Interested"];
 const STATUS_STYLES = {
@@ -106,6 +107,13 @@ export default function Dashboard() {
           >
             Course Pricing
           </button>
+          <button
+            onClick={() => setActiveSection("gallery")}
+            aria-current={activeSection === "gallery" ? "page" : undefined}
+            className={`w-full rounded px-3 py-2 text-left font-medium ${activeSection === "gallery" ? "bg-asphalt text-paper" : "text-chalkLine/70 hover:bg-asphalt hover:text-paper"}`}
+          >
+            Gallery
+          </button>
         </nav>
         <div className="border-t border-chalkLine/10 p-3">
           <button onClick={logout} className="w-full rounded px-3 py-2 text-left text-sm text-chalkLine/80 hover:bg-asphalt">
@@ -118,7 +126,7 @@ export default function Dashboard() {
       <div className="flex-1">
         <header className="flex items-center justify-between border-b-2 border-ink bg-paper px-5 py-4 md:px-8">
           <h1 className="font-display text-xl uppercase tracking-wide text-ink">
-            {activeSection === "inquiries" ? "Inquiries Inbox" : "Course Pricing"}
+            {activeSection === "inquiries" ? "Inquiries Inbox" : activeSection === "pricing" ? "Course Pricing" : "Gallery Manager"}
           </h1>
           <div className="flex items-center gap-3">
             {activeSection === "inquiries" && (
@@ -146,6 +154,7 @@ export default function Dashboard() {
           {[
             ["inquiries", "Inquiries"],
             ["pricing", "Course Pricing"],
+            ["gallery", "Gallery"],
           ].map(([section, label]) => (
             <button
               key={section}
@@ -262,8 +271,10 @@ export default function Dashboard() {
           </div>
             </div>
           </>
-        ) : (
+        ) : activeSection === "pricing" ? (
           <CoursePricingManager />
+        ) : (
+          <GalleryManager />
         )}
       </div>
     </div>
