@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import CoursePricingManager from "./CoursePricingManager";
 import GalleryManager from "./GalleryManager";
 
 const STATUSES = ["New", "Contacted", "Enrolled", "Not Interested"];
@@ -10,7 +9,6 @@ const DATE_GROUPS = ["All dates", "Today", "This week", "Last month", "Older"];
 const SECTIONS = [
   ["overview", "Overview", "▦"],
   ["inquiries", "Inquiries", "◎"],
-  ["pricing", "Course Pricing", "₦"],
   ["gallery", "Gallery", "▧"],
 ];
 const STATUS_STYLES = {
@@ -244,7 +242,7 @@ export default function Dashboard() {
               </section>
             </div>
           </section>
-        ) : activeSection === "pricing" ? <CoursePricingManager/> : <GalleryManager/>}
+        ) : <GalleryManager/>}
       </main>
     </div>
   );

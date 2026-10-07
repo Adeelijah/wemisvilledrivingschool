@@ -18,7 +18,7 @@ export default function Footer() {
             <p className="font-display text-base font-semibold uppercase tracking-[0.08em] text-paper">WEMISVILLE DRIVING SCHOOL</p>
           </div>
           <p className="mt-2 max-w-xs text-sm text-chalkLine/80">
-            Comprehensive driving instruction, driving-simulation technology, and personalised training in Akure, Ondo State.
+            Comprehensive driving instruction and personalised training in Akure, Ondo State.
           </p>
         </div>
 

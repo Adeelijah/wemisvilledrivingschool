@@ -6,12 +6,13 @@ Canonical website: https://wemisvilledrivingschool.vercel.app
 
 ## About
 
-Wemisville provides driving instruction in Akure. The school describes its training as combining theory, supervised road practice, simulation-based training where relevant, and coaching tailored to the learner. The website identifies Wemisville as accredited by the Federal Road Safety Corps (FRSC).
+Wemisville provides driving instruction in Akure. The school describes its training as combining theory, supervised road practice, and coaching tailored to the learner. The website identifies Wemisville as accredited by the Federal Road Safety Corps (FRSC).
 
 ## Courses and services
 
-- **Basic Driving Course:** Listed as four weeks with flexible scheduling. It includes Highway Code and road-sign theory, supervised practical driving, vehicle control and parking practice, and FRSC test preparation.
-- **Advanced / Simulator Course:** Listed as two to three weeks. It includes driving-simulator sessions, defensive-driving techniques, night and highway practice, and one-on-one coaching.
+- **Basic Driving Course:** Listed as two weeks. It includes advanced vehicle control, defensive-driving techniques, highway and road practice, and one-on-one coaching.
+- **Intense Driving Course:** Listed as three weeks. It includes focused practical sessions, defensive-driving techniques, road-sign and Highway Code review, and one-on-one instructor coaching.
+- **Advanced Driving Course:** Listed as four weeks. It includes Highway Code and road-sign theory, supervised practical driving, vehicle control and parking practice, and FRSC test preparation.
 - **Corporate / Fleet Training:** Custom, group-based training for companies and organisations. The site lists group enrolment, an on-site option, and fleet-safety and defensive-driving training.
 
 ## Enquiries and enrollment

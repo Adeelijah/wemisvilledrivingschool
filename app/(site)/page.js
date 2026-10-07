@@ -4,22 +4,17 @@ import LaneDivider from "@/components/LaneDivider";
 import PlateBadge from "@/components/PlateBadge";
 import Gauge from "@/components/Gauge";
 import CourseCard from "@/components/CourseCard";
-import { enrollSteps, testimonials } from "@/lib/courses";
-import { getCoursesWithPrices } from "@/lib/course-pricing";
+import { courses, enrollSteps, testimonials } from "@/lib/courses";
 import { site, whatsappLink } from "@/lib/site";
 
 const WHY = [
   { title: "FRSC Accredited", desc: "Officially recognised training that meets federal road-safety standards." },
-  { title: "Simulation Technology", desc: "Simulator training sessions are included in all three driving courses." },
+  { title: "Safety First", desc: "Build practical driving habits with patient, structured instruction." },
   { title: "Experienced Instructors", desc: "Patient, structured teaching for first-time and returning drivers." },
   { title: "Personalised Training", desc: "Pace and focus areas adjusted to how you actually learn." },
 ];
 
-export const dynamic = "force-dynamic";
-
-export default async function HomePage() {
-  const displayCourses = await getCoursesWithPrices();
-
+export default function HomePage() {
   return (
     <>
       {/* HERO */}
@@ -72,7 +67,7 @@ export default async function HomePage() {
             </Link>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            {displayCourses.map((course) => (
+            {courses.map((course) => (
               <CourseCard key={course.code} course={course} />
             ))}
           </div>
@@ -88,7 +83,7 @@ export default async function HomePage() {
           <h2 className="mb-10 font-display text-3xl uppercase tracking-wide text-ink md:text-4xl">
             Built on safety, backed by results
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {WHY.map((item) => (
               <div key={item.title} className="border-2 border-ink bg-paper p-5">
                 <h3 className="font-display text-lg uppercase tracking-wide text-ink">{item.title}</h3>

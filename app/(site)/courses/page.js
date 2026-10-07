@@ -2,8 +2,7 @@ import PageHero from "@/components/PageHero";
 import Container from "@/components/Container";
 import CourseCard from "@/components/CourseCard";
 import LaneDivider from "@/components/LaneDivider";
-import { corporateFleetTraining, otherServices } from "@/lib/courses";
-import { getCoursesWithPrices } from "@/lib/course-pricing";
+import { corporateFleetTraining, courses, otherServices } from "@/lib/courses";
 import { whatsappLink } from "@/lib/site";
 
 export const metadata = {
@@ -11,11 +10,7 @@ export const metadata = {
   description: "Driving courses and other driver services from Wemisville Driving School, Akure.",
 };
 
-export const dynamic = "force-dynamic";
-
-export default async function CoursesPage() {
-  const displayCourses = await getCoursesWithPrices();
-
+export default function CoursesPage() {
   return (
     <>
       <PageHero
@@ -25,7 +20,7 @@ export default async function CoursesPage() {
       />
       <section className="py-14 md:py-20">
         <Container className="grid gap-8 md:grid-cols-3">
-          {displayCourses.map((course) => (
+          {courses.map((course) => (
             <CourseCard key={course.code} course={course} />
           ))}
         </Container>

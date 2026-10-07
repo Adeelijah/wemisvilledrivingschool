@@ -48,7 +48,7 @@ only the functions exported from `lib/db.js` (`listInquiries`, `createInquiry`,
 
 ## Connecting a CMS (so staff can edit content without a developer)
 
-Course details, pricing, and copy currently live in `lib/courses.js` and directly in the
+Course details and copy currently live in `lib/courses.js` and directly in the
 page files, so a developer is needed to change them today. To let staff edit this
 themselves:
 
@@ -59,7 +59,7 @@ themselves:
 3. Replace the static exports in `lib/courses.js` and `lib/site.js` with fetch calls to the
    CMS's API (most offer a JS/fetch-friendly API and a generous free tier).
 4. Give staff a login to the CMS's own editor UI — no code required for routine updates
-   (new course, price change, new testimonial, swapping a photo).
+   (new course, course details, new testimonial, swapping a photo).
 
 This keeps the actual website custom-built and fast, while giving the school the same
 day-to-day editing convenience a WordPress site would offer.
@@ -98,8 +98,8 @@ consider upgrading Next.js before a production launch.
 
 ## Content still needed from the client
 
-See PRD Section 7 — logo, real course pricing/durations, photos (facility, vehicles,
-simulator, instructors), FRSC certificate, and confirmed contact details. Placeholder
+See PRD Section 7 — logo, confirmed course fees and durations, photos (facility, vehicles,
+instructors), FRSC certificate, and confirmed contact details. Placeholder
 boxes marked "Photo" throughout the Gallery/About pages should be replaced with real
 images.
 
